@@ -2,7 +2,7 @@
 
 **Lab Description:** Lab 1 ended with a problem: symmetric encryption uses the same key to lock and unlock, so before a partner can send you an encrypted file you must somehow get that key to them safely — and any channel safe enough for the key was already safe enough for the file. **Public-key cryptography** breaks that circle by using two different keys. In this lab you will generate an RSA key pair, publish one half of it, encrypt and decrypt with it, then run head-first into the limitation that stops RSA being used for bulk data — and build the hybrid scheme that every real system uses to work around it.
 
-**Estimated Duration:** **20 Minutes**
+**Estimated Duration:** **30 Minutes**
 
 **Learning Objectives:** By the end of this lab, you will be able to:
 

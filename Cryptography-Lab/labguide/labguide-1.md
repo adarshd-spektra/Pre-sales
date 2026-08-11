@@ -2,7 +2,7 @@
 
 **Lab Description:** Accounts Payable has two copies of invoice 2026-0417, received from two different email addresses, and the bank details do not match. Paying the wrong one sends 48,250 EUR to a criminal. In this lab you will use a **cryptographic hash** to prove which copy is genuine, then use **symmetric encryption** to protect a payroll extract that is currently sitting on disk in plain text. Along the way you will meet the limitation of symmetric encryption that the whole of Lab 2 exists to solve.
 
-**Estimated Duration:** **20 Minutes**
+**Estimated Duration:** **30 Minutes**
 
 **Learning Objectives:** By the end of this lab, you will be able to:
 

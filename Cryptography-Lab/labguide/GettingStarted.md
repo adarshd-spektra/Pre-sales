@@ -1,6 +1,6 @@
 # IT Security Fundamentals: Cryptography
 
-### Estimated Duration: 70 Minutes
+### Estimated Duration: 90 Minutes
 
 ## Overview
 
