@@ -2,26 +2,26 @@
   {
     "Name": "IT Security Fundamentals: Cryptography",
     "Language": "English",
-    "BaseURL": "https://github.com/CloudLabsAI/Crypto-Fundamentals",
+    "BaseURL": "https://github.com/adarshd-spektra/Pre-sales",
     "Files": [
       {
-        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI/Crypto-Fundamentals/refs/heads/main/labguide/GettingStarted.md",
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/adarshd-spektra/Pre-sales/refs/heads/main/Cryptography-Lab/labguide/GettingStarted.md",
         "Order": 1
       },
       {
-        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI/Crypto-Fundamentals/refs/heads/main/labguide/labguide-1.md",
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/adarshd-spektra/Pre-sales/refs/heads/main/Cryptography-Lab/labguide/labguide-1.md",
         "Order": 2
       },
       {
-        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI/Crypto-Fundamentals/refs/heads/main/labguide/labguide-2.md",
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/adarshd-spektra/Pre-sales/refs/heads/main/Cryptography-Lab/labguide/labguide-2.md",
         "Order": 3
       },
       {
-        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI/Crypto-Fundamentals/refs/heads/main/labguide/labguide-3.md",
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/adarshd-spektra/Pre-sales/refs/heads/main/Cryptography-Lab/labguide/labguide-3.md",
         "Order": 4
       },
       {
-        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI/Crypto-Fundamentals/refs/heads/main/labguide/labguide-4.md",
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/adarshd-spektra/Pre-sales/refs/heads/main/Cryptography-Lab/labguide/labguide-4.md",
         "Order": 5
       }
     ]
