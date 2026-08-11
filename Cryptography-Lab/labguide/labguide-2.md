@@ -1,6 +1,6 @@
 # Lab 2: Public-Key Cryptography
 
-**Lab Description:** Lab 1 ended with a problem: symmetric encryption uses the same key to lock and unlock, so before a partner can send you an encrypted file you must somehow get that key to them safely — and any channel safe enough for the key was already safe enough for the file. **Public-key cryptography** breaks that circle by using two different keys. In this lab you will generate an RSA key pair, publish one half of it, encrypt and decrypt with it, then run head-first into the limitation that stops RSA being used for bulk data — and build the hybrid scheme that every real system uses to work around it.
+**Lab Description:** Lab 1 ended with a problem: symmetric encryption uses the same key to lock and unlock, so before a partner can send you an encrypted file you must somehow get that key to them safely, and any channel safe enough for the key was already safe enough for the file. **Public-key cryptography** breaks that circle by using two different keys. In this lab you will generate an RSA key pair, publish one half of it, encrypt and decrypt with it, then run head-first into the limitation that stops RSA being used for bulk data, and build the hybrid scheme that every real system uses to work around it.
 
 **Estimated Duration:** **30 Minutes**
 
@@ -26,7 +26,7 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
     cd ~/crypto-lab
     ```
 
-### Generate the key pair
+### **Generate the key pair**
 
 1. Run the following command to generate a 2048-bit RSA private key.
 
@@ -41,7 +41,7 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
     ...+..+....+++++++++++++++++++++++++++++++++++++++*......+..+....+++++++++++++++++++++++++++++++++++++++*......+.....+....+..+...+....++++++
     ```
 
-    >**Note:** The dots and plus signs are a progress indicator, and the exact pattern will be different every time — OpenSSL is searching for large random prime numbers, and the display shows candidates being tested and rejected. This is why key generation takes a few seconds rather than being instant. **Your key is unique to you**; nobody else running this lab will produce the same one.
+    >**Note:** The dots and plus signs are a progress indicator, and the exact pattern will be different every time, OpenSSL is searching for large random prime numbers, and the display shows candidates being tested and rejected. This is why key generation takes a few seconds rather than being instant. **Your key is unique to you**; nobody else running this lab will produce the same one.
 
 1. Run the following command to derive the matching public key from the private key.
 
@@ -55,7 +55,7 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
     writing RSA key
     ```
 
-    >**Note:** Notice the direction. The public key is **extracted from** the private key — the private key contains everything, and the public key is a subset of it. There is no command to do the reverse, which is precisely why a leaked private key is a catastrophe and a published public key is harmless. Both files are PEM format: base64 text wrapped in `BEGIN`/`END` markers, which is why keys can be pasted into config files and emails. **`public_key.pem` is safe to publish anywhere. `private_key.pem` never leaves this machine.**
+    >**Note:** Notice the direction. The public key is **extracted from** the private key, the private key contains everything, and the public key is a subset of it. There is no command to do the reverse, which is precisely why a leaked private key is a catastrophe and a published public key is harmless. Both files are PEM format: base64 text wrapped in `BEGIN`/`END` markers, which is why keys can be pasted into config files and emails. **`public_key.pem` is safe to publish anywhere. `private_key.pem` never leaves this machine.**
 
 1. Run the following command to confirm the key size.
 
@@ -69,7 +69,7 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
     Private-Key: (2048 bit, 2 primes)
     ```
 
-    >**Note:** 2048 bits is the current practical minimum for RSA; anything at or below 1024 bits is considered broken. The "2 primes" is the heart of RSA — the key was built from two large secret primes, and its security rests on the fact that multiplying them together is easy while factoring the result back apart is not.
+    >**Note:** 2048 bits is the current practical minimum for RSA; anything at or below 1024 bits is considered broken. The "2 primes" is the heart of RSA, the key was built from two large secret primes, and its security rests on the fact that multiplying them together is easy while factoring the result back apart is not.
 
 1. Run the following commands to prove the two files really are two halves of one key pair.
 
@@ -85,9 +85,9 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
     665742549d3c91b6f5dcf011acf786574ce4217472ba478339dbbfb935c5021d  -
     ```
 
-    >**Note:** Your two hashes will be different from the ones shown, because your key is unique — but **they must match each other**. The modulus is the shared public number both halves are built around, so hashing it is the standard way to check that a key and a certificate belong together. You will use exactly this technique again in Lab 3.
+    >**Note:** Your two hashes will be different from the ones shown, because your key is unique, but **they must match each other**. The modulus is the shared public number both halves are built around, so hashing it is the standard way to check that a key and a certificate belong together. You will use exactly this technique again in Lab 3.
 
-### Encrypt and decrypt with the key pair
+### **Encrypt and decrypt with the key pair**
 
 1. Run the following command to encrypt the release approval using the **public** key.
 
@@ -104,11 +104,11 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
     **Expected Output:**
 
     ```output
-    -rw-r--r-- 1 azureuser azureuser 256 Aug 11 09:31 message.enc
-    -rw-r--r-- 1 azureuser azureuser 137 Aug 11 09:31 message.txt
+    -rw-rw-r-- 1 azureuser azureuser 256 Aug 11 09:31 message.enc
+    -rw-r--r-- 1 azureuser azureuser 137 Aug 11 09:12 message.txt
     ```
 
-    >**Note:** The 137-byte input became exactly **256 bytes**, which is 2048 bits — the size of the key. RSA output is always exactly one key-width, whatever the input size. Keep that number in mind for the next section.
+    >**Note:** The 137-byte input became exactly **256 bytes**, which is 2048 bits, the size of the key. RSA output is always exactly one key-width, whatever the input size. Keep that number in mind for the next section.
 
 1. Run the following command to decrypt it using the **private** key.
 
@@ -128,9 +128,9 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
     IDENTICAL
     ```
 
-    >**Note:** This is the asymmetry that solves Lab 1's problem. Anyone holding your public key can encrypt a message to you, but **only** your private key can open it — so you can publish the public key on a website and never need a secure channel to bootstrap the conversation.
+    >**Note:** This is the asymmetry that solves Lab 1's problem. Anyone holding your public key can encrypt a message to you, but **only** your private key can open it, so you can publish the public key on a website and never need a secure channel to bootstrap the conversation.
 
-### Discover the size limit
+### **Discover the size limit**
 
 1. Run the following command to try the same thing with the payroll file.
 
@@ -142,14 +142,14 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
 
     ```output
     Public Key operation error
-    40A7B2CF877F0000:error:0200006E:rsa routines:ossl_rsa_padding_add_PKCS1_type_2_ex:data too large for key size:../crypto/rsa/rsa_pk1.c:132:
+    800B762557770000:error:0200006E:rsa routines:ossl_rsa_padding_add_PKCS1_type_2_ex:data too large for key size:../crypto/rsa/rsa_pk1.c:133:
     ```
 
-    >**Note:** This failure is expected — it is the lesson. The hexadecimal prefix and file path will differ on your run; the phrase that matters is **`data too large for key size`**. RSA is not a general-purpose cipher: it can only encrypt a number smaller than its modulus. With a 2048-bit key and PKCS#1 v1.5 padding, the ceiling is **245 bytes** (256 bytes of key width, minus 11 bytes of mandatory padding). `message.txt` was 137 bytes and fit comfortably; `payroll.csv` is 407 bytes and does not.
+    >**Note:** This failure is expected, it is the lesson. The hexadecimal prefix and file path will differ on your run; the phrase that matters is **`data too large for key size`**. RSA is not a general-purpose cipher: it can only encrypt a number smaller than its modulus. With a 2048-bit key and PKCS#1 v1.5 padding, the ceiling is **245 bytes** (256 bytes of key width, minus 11 bytes of mandatory padding). `message.txt` was 137 bytes and fit comfortably; `payroll.csv` is 407 bytes and does not.
 
     >**Note:** Even if RSA had no size limit it would still be the wrong tool here, because it is roughly a thousand times slower than AES. Encrypting a large file with RSA directly would be unusably slow even where it was possible.
 
-### Build hybrid encryption
+### **Build hybrid encryption**
 
 1. Run the following command to generate a random 256-bit key for AES, encoded as base64 text.
 
@@ -164,7 +164,7 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
     AS+7pvHZuSABjQzohEYq2OkG2BS+3oCyEMRnhUVnTWc=
     ```
 
-    >**Note:** Yours will be different — that is the point of `rand`. This is a **session key**: generated fresh, used once, and thrown away. 32 bytes of random data become 44 base64 characters, which is comfortably under the 245-byte RSA ceiling. That fact is what makes the next two steps work.
+    >**Note:** Yours will be different, that is the point of `rand`. This is a **session key**: generated fresh, used once, and thrown away. 32 bytes of random data become 44 base64 characters, which is comfortably under the 245-byte RSA ceiling. That fact is what makes the next two steps work.
 
 1. Run the following command to encrypt the bulk data with AES, using that random key.
 
@@ -191,8 +191,8 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
     **Expected Output:**
 
     ```output
-    -rw-r--r-- 1 azureuser azureuser  256 Aug 11 09:38 aes.key.enc
-    -rw-r--r-- 1 azureuser azureuser  432 Aug 11 09:38 payroll.hybrid.enc
+    -rw-rw-r-- 1 azureuser azureuser  256 Aug 11 09:38 aes.key.enc
+    -rw-rw-r-- 1 azureuser azureuser  432 Aug 11 09:38 payroll.hybrid.enc
     ```
 
     >**Note:** The wrapped key is 256 bytes regardless of the file size, and the encrypted payload grows with the data. Send both to the recipient. Only the holder of the private key can unwrap the session key, and without the session key the payload is useless.
@@ -223,7 +223,7 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
 > - If not, carefully read the error message and retry the step, following the instructions in the guide.
 > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-<validation step="6a92f38d-1c47-40be-b53a-8f0d27e6c914" />
+<validation step="82466211-3f08-497f-9523-a303a53fc1df" />
 
 **Lab 2 Recap:** In this lab, you:
 

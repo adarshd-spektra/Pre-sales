@@ -20,7 +20,7 @@
 
 In this task, you will identify the forged invoice using the vendor's published checksum, then encrypt the payroll extract so it is unreadable without the key.
 
-1. You are already connected to the **Lab VM** over SSH. If your session has closed, reconnect using the values on the **Environment** tab.
+1. You are already connected to the **Lab VM** over SSH. If you encounter any issues connecting, you can also connect locally using the connection details available under the **Environment tab**.
 
     ![](../Image/env.png)
 
@@ -44,9 +44,9 @@ In this task, you will identify the forged invoice using the vendor's published 
     OpenSSL 3.0.2 15 Mar 2022 (Library: OpenSSL 3.0.2 15 Mar 2022)
     ```
 
-    >**Note:** Your timestamps and OpenSSL version may differ. The repeated `(Library: ...)` is normal — it reports the version of the OpenSSL library the command-line tool is linked against, which on this image is the same one. Notice that both invoices are exactly **212 bytes** — the forgery was built by substituting one bank account number for another of the same length, so file size tells you nothing. This is deliberate, and it is why you need a hash. OpenSSL is the reference implementation of TLS and the toolkit behind most of the encryption on the internet; every command in this lab uses it.
+    >**Note:** Your timestamps and OpenSSL version may differ. The repeated `(Library: ...)` is normal, it reports the version of the OpenSSL library the command-line tool is linked against, which on this image is the same one. Notice that both invoices are exactly **212 bytes**, the forgery was built by substituting one bank account number for another of the same length, so file size tells you nothing. This is deliberate, and it is why you need a hash. OpenSSL is the reference implementation of TLS and the toolkit behind most of the encryption on the internet; every command in this lab uses it.
 
-### Understand what a hash is
+### **Understand what a hash is**
 
 1. Run the following command to produce the SHA-256 fingerprint of the first invoice.
 
@@ -78,7 +78,7 @@ In this task, you will identify the forged invoice using the vendor's published 
 
     >**Note:** Changing `4` to `5` produced a completely unrelated hash rather than a slightly different one. This is the **avalanche effect**, and it is what makes hashes useful for detecting tampering: there is no such thing as a "small" change. The `-` in the output means the input came from standard input rather than a file, and `echo -n` suppresses the trailing newline so you are hashing exactly those 30 characters.
 
-### Identify the forged invoice
+### **Identify the forged invoice**
 
 1. Run the following command to view the checksum manifest the vendor publishes on their website.
 
@@ -128,7 +128,7 @@ In this task, you will identify the forged invoice using the vendor's published 
 
     >**Note:** This is a **payment redirect attack**, and it is one of the most common frauds businesses face. Everything about the forged invoice is convincing except six words of bank detail. Note carefully what the hash did and did not do: it proved the file changed, but it could not tell you *who* changed it. Proving origin is authenticity, and that is Lab 3.
 
-### See why password hashes are salted
+### **See why password hashes are salted**
 
 1. Run the following command twice to hash the same password with the same salt.
 
@@ -144,7 +144,7 @@ In this task, you will identify the forged invoice using the vendor's published 
     $6$LabSalt01$orysB7nwROcFbcrScXoaDy9MDevGMHOivDpdUFRzEX728SmdNe5Ou5VVWi3ZMQHgPdWzzDBZo7FejGfF0WpN40
     ```
 
-    >**Note:** Hashing is deterministic: identical inputs always produce identical outputs. That is exactly how a login check works — the system hashes what you typed and compares it to the stored value, without ever storing your actual password. The `-6` selects SHA-512 crypt, the scheme Linux uses in `/etc/shadow`.
+    >**Note:** Hashing is deterministic: identical inputs always produce identical outputs. That is exactly how a login check works, the system hashes what you typed and compares it to the stored value, without ever storing your actual password. The `-6` selects SHA-512 crypt, the scheme Linux uses in `/etc/shadow`.
 
 1. Run the following command to hash the **same** password with a **different** salt.
 
@@ -158,11 +158,11 @@ In this task, you will identify the forged invoice using the vendor's published 
     $6$LabSalt02$R29VGF88q4w9VbRf9OoW9D/nt0Xw305D6Euh8VeMsOviHiFxC6OTtyc9pCjCB16J5UnZvZGTwDSjRhGlGdtx8/
     ```
 
-    >**Note:** Same password, unrelated hash. The salt is stored in plain sight between the second and third `$` — it is not a secret. Its job is to guarantee that two users who happen to choose the same password get different stored hashes, so an attacker cannot crack them both at once and cannot use a precomputed rainbow table. Real systems generate a random salt per account rather than fixing it as you did here.
+    >**Note:** Same password, unrelated hash. The salt is stored in plain sight between the second and third `$`, it is not a secret. Its job is to guarantee that two users who happen to choose the same password get different stored hashes, so an attacker cannot crack them both at once and cannot use a precomputed rainbow table. Real systems generate a random salt per account rather than fixing it as you did here.
 
-### Protect the payroll extract with AES-256
+### **Protect the payroll extract with AES-256**
 
-1. Run the following command to encrypt the payroll extract — currently readable by anyone who opens it — with AES-256 in CBC mode.
+1. Run the following command to encrypt the payroll extract, currently readable by anyone who opens it, with AES-256 in CBC mode.
 
     ```bash
     openssl enc -aes-256-cbc -pbkdf2 -salt -in payroll.csv -out payroll.csv.enc -pass pass:'Payroll-Key-2026'
@@ -184,7 +184,7 @@ In this task, you will identify the forged invoice using the vendor's published 
     0000040
     ```
 
-    >**Note:** Your bytes after the header will differ every time, and that is the point. OpenSSL writes the literal string `Salted__` followed by the eight random salt bytes it generated, then the ciphertext. Because the salt is random, encrypting the same file twice with the same password produces completely different output — so an observer cannot tell that two ciphertexts hold identical data.
+    >**Note:** Your bytes after the header will differ every time, and that is the point. OpenSSL writes the literal string `Salted__` followed by the eight random salt bytes it generated, then the ciphertext. Because the salt is random, encrypting the same file twice with the same password produces completely different output, so an observer cannot tell that two ciphertexts hold identical data.
 
 1. Run the following command to decrypt the file back with the same password.
 
@@ -218,17 +218,17 @@ In this task, you will identify the forged invoice using the vendor's published 
 
     ```output
     bad decrypt
-    40C7A2CF877F0000:error:1C800064:Provider routines:ossl_cipher_unpadblock:bad decrypt:../providers/implementations/ciphers/ciphercommon_block.c:107:
+    80AB3209367B0000:error:1C800064:Provider routines:ossl_cipher_unpadblock:bad decrypt:../providers/implementations/ciphers/ciphercommon_block.c:124:
     ```
 
-    >**Note:** The long hexadecimal prefix and the source file path will differ on your run — only `bad decrypt` matters. AES itself did not detect the wrong key; it happily produced 407 bytes of garbage. What failed was the **padding check** at the end. This is why modern designs prefer authenticated modes such as AES-GCM, which verify the data cryptographically rather than inferring failure from malformed padding.
+    >**Note:** The long hexadecimal prefix, the source file path, and the line number will differ on your run, only `bad decrypt` matters. AES itself did not detect the wrong key; it happily produced 407 bytes of garbage. What failed was the **padding check** at the end. This is why modern designs prefer authenticated modes such as AES-GCM, which verify the data cryptographically rather than inferring failure from malformed padding.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
 > - If not, carefully read the error message and retry the step, following the instructions in the guide.
 > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-<validation step="c4e17a92-8d3b-4f65-a018-2e7c9b5d40f1" />
+<validation step="560d7b09-aacf-4937-bc44-7399019ce3e9" />
 
 **Lab 1 Recap:** In this lab, you:
 
@@ -240,7 +240,7 @@ In this task, you will identify the forged invoice using the vendor's published 
 
 - Encrypted and decrypted the payroll extract with AES-256 and PBKDF2, and inspected the `Salted__` header that makes each ciphertext unique.
 
-> **Note:** You have now solved integrity and confidentiality — but only for yourself. Notice that you used **the same password to encrypt and to decrypt**. If a partner needs to send you an encrypted file, you first have to get that password to them, and any channel safe enough to carry the password was already safe enough to carry the file. This is the **key distribution problem**, and it is what Lab 2 solves.
+> **Note:** You have now solved integrity and confidentiality, but only for yourself. Notice that you used **the same password to encrypt and to decrypt**. If a partner needs to send you an encrypted file, you first have to get that password to them, and any channel safe enough to carry the password was already safe enough to carry the file. This is the **key distribution problem**, and it is what Lab 2 solves.
 
 ## You have successfully completed Lab 1.
 

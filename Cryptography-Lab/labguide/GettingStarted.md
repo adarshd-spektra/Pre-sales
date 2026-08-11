@@ -6,7 +6,7 @@
 
 In this hands-on lab you act as the **security engineer at Northwind Components**. Accounts Payable has received two copies of the same supplier invoice from two different email addresses, and one of them carries a different bank account number. A payroll extract is sitting unencrypted on disk. A partner needs to send you confidential files but has no safe way to agree a shared password with you first. And a release approval has to be published so that anyone can confirm it genuinely came from you.
 
-Every one of those problems is solved by cryptography, and over three guided labs you will solve all four using nothing but `openssl` and the standard Linux command line. You will work through the three guarantees that cryptography actually provides — **integrity** (has this been altered?), **confidentiality** (can anyone else read this?), and **authenticity** (did this really come from who it claims?) — and see exactly where each one succeeds and where it fails. Each lab provides complete step-by-step instructions with the exact commands and their expected output, so you can follow along and confirm your work as you go. A short knowledge check at the end confirms your understanding of the concepts behind the commands.
+Every one of those problems is solved by cryptography, and over three guided labs you will solve all four using nothing but `openssl` and the standard Linux command line. You will work through the three guarantees that cryptography actually provides, **integrity** (has this been altered?), **confidentiality** (can anyone else read this?), and **authenticity** (did this really come from who it claims?), and see exactly where each one succeeds and where it fails. Each lab provides complete step-by-step instructions with the exact commands and their expected output, so you can follow along and confirm your work as you go. A short knowledge check at the end confirms your understanding of the concepts behind the commands.
 
 ## Getting started with your lab
 
@@ -23,7 +23,9 @@ Your virtual machine and this **Guide** are available within your web browser.
 1. You are now connected to the Lab VM over SSH. You can find more details about the Lab VM in the **Environment** tab.
 
     - **SSH command:** see the **LabVM SSH Command** output on the **Environment** tab
+
     - **Username:** see the **LabVM Admin Username** output on the **Environment** tab
+
     - **Password:** see the **LabVM Admin Password** output on the **Environment** tab
 
 1. The Lab VM is an **Ubuntu 22.04 LTS** server named **labvm-<inject key="DeploymentID" enableCopy="false"/>**.
@@ -70,22 +72,16 @@ To adjust the zoom level for the environment page, click the **A↕: 100%** icon
 
 ## Validation
 
-Use the **Validate** button on each task to check your work. After completing the task, hit the **Validate** button under the Validation tab integrated within your guide. If you receive a success message, you can proceed to the next task; if not, carefully read the error message and retry the step, following the instructions in the guide.
+Use the **Validate** button on each task to check your work. After completing the task, hit the **Validate** button under the Validation tab integrated within your guide. If you receive a success message, you can proceed to the next task; if not, carefully read the error message and retry the step, following the instructions in the guide.The **Progress** tab shows your validation score, it reaches 100% when all task validations pass.
 
    ![](../Image/val.png)
-
-## Track Your Progress
-
-The **Progress** tab shows your validation score, it reaches 100% when all task validations pass.
-
-   ![](../Image/progress.png)
 
 ## Lab Structure
 
 | Lab | Topic | Duration |
 |-----|-------|----------|
-| Lab 1 | Hashing, Integrity, and Symmetric Encryption: SHA-256, checksum manifests, salting, AES-256 | 20 Minutes |
-| Lab 2 | Public-Key Cryptography: RSA key pairs, the bulk-data limit, hybrid encryption | 20 Minutes |
+| Lab 1 | Hashing, Integrity, and Symmetric Encryption: SHA-256, checksum manifests, salting, AES-256 | 30 Minutes |
+| Lab 2 | Public-Key Cryptography: RSA key pairs, the bulk-data limit, hybrid encryption | 30 Minutes |
 | Lab 3 | Digital Signatures and Certificates: signing, tamper detection, X.509, trust anchors | 20 Minutes |
 | Lab 4 | Knowledge Check: 5 questions | 10 Minutes |
 
