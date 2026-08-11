@@ -1,0 +1,29 @@
+[
+  {
+    "Name": "IT Security Fundamentals: Cryptography",
+    "Language": "English",
+    "BaseURL": "https://github.com/CloudLabsAI/Crypto-Fundamentals",
+    "Files": [
+      {
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI/Crypto-Fundamentals/refs/heads/main/labguide/GettingStarted.md",
+        "Order": 1
+      },
+      {
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI/Crypto-Fundamentals/refs/heads/main/labguide/labguide-1.md",
+        "Order": 2
+      },
+      {
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI/Crypto-Fundamentals/refs/heads/main/labguide/labguide-2.md",
+        "Order": 3
+      },
+      {
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI/Crypto-Fundamentals/refs/heads/main/labguide/labguide-3.md",
+        "Order": 4
+      },
+      {
+        "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI/Crypto-Fundamentals/refs/heads/main/labguide/labguide-4.md",
+        "Order": 5
+      }
+    ]
+  }
+]
