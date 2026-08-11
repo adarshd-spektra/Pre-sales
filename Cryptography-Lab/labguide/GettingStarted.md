@@ -16,7 +16,7 @@ Welcome to your IT Security Fundamentals: Cryptography hands-on lab. This enviro
 
 Your virtual machine and this **Guide** are available within your web browser.
 
-   ![](../Image/guide1.png)
+   ![](./Image/gd2.png)
 
 ## Environment Details
 
@@ -50,31 +50,31 @@ Your virtual machine and this **Guide** are available within your web browser.
 
 To get a better understanding of your resources and credentials, navigate to the **Environment** tab.
 
-   ![](../Image/env.png)
+   ![](./Image/EV.png)
 
 ## Utilizing the Split Window Feature
 
 For convenience, you can open the guide in a separate window by selecting the **Split Window** button from the top right corner.
 
-   ![](../Image/split.png)
+   ![](./Image/split.png)
 
 ## Managing Your Virtual Machine
 
 Feel free to **Start, Restart,** or **Stop** your virtual machine as needed from the **Resources** tab. Your experience is in your hands!
 
-   ![](../Image/resources.png)
+   ![](./Image/rsrs.png)
 
 ## Guide Zoom In/Zoom Out
 
 To adjust the zoom level for the environment page, click the **A↕: 100%** icon located next to the timer in the environment.
 
-   ![](../Image/zoom.png)
+   ![](./Image/zum2.png)
 
 ## Validation
 
 Use the **Validate** button on each task to check your work. After completing the task, hit the **Validate** button under the Validation tab integrated within your guide. If you receive a success message, you can proceed to the next task; if not, carefully read the error message and retry the step, following the instructions in the guide.The **Progress** tab shows your validation score, it reaches 100% when all task validations pass.
 
-   ![](../Image/val.png)
+   ![](../Image/sql.png)
 
 ## Lab Structure
 

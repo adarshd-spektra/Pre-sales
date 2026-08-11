@@ -22,7 +22,7 @@ In this task, you will identify the forged invoice using the vendor's published 
 
 1. You are already connected to the **Lab VM** over SSH. If you encounter any issues connecting, you can also connect locally using the connection details available under the **Environment tab**.
 
-    ![](../Image/env.png)
+    ![](./Image/EV.png)
 
 1. Run the following commands to move into your working directory, see what you have been given, and confirm which version of OpenSSL you are working with.
 
