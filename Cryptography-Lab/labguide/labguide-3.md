@@ -250,4 +250,4 @@ In this task, you will sign the release approval, watch verification fail agains
 
 Now, click on **Next >>** from the lower right corner to move on to the next page
 
-   ![](../Image/next1.png)
+   ![](./Image/nxt.png)

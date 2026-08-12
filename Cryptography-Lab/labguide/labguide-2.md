@@ -243,4 +243,4 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
 
 Now, click on **Next >>** from the lower right corner to move on to the next page
 
-   ![](../Image/next1.png)
+   ![](./Image/nxt.png)

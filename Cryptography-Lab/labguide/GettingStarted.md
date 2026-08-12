@@ -94,6 +94,6 @@ The CloudLabs support team is available 24/7 via email and live chat.
 
 Now, click on **Next >>** from the lower right corner to move on to the next page to begin with Lab 1.
 
-   ![](../Image/next1.png)
+   ![](./Image/nxt.png)
 
 ## Happy Learning !!

@@ -246,4 +246,4 @@ In this task, you will identify the forged invoice using the vendor's published 
 
 Now, click on **Next >>** from the lower right corner to move on to the next page
 
-   ![](../Image/next1.png)
+   ![](./Image/nxt.png)
