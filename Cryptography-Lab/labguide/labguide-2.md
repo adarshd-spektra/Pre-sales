@@ -75,6 +75,9 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
 
     ```bash
     openssl rsa -in private_key.pem -noout -modulus | sha256sum
+    ```
+
+    ```bash
     openssl rsa -pubin -in public_key.pem -noout -modulus | sha256sum
     ```
 
@@ -158,6 +161,10 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
     cat aes.key
     ```
 
+    ```bash
+    cat aes.key
+    ```
+
     **Expected Output:**
 
     ```output
@@ -201,6 +208,9 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
 
     ```bash
     openssl pkeyutl -decrypt -inkey private_key.pem -in aes.key.enc -out aes.key.recovered
+    ```
+
+    ```bash
     openssl enc -d -aes-256-cbc -pbkdf2 -in payroll.hybrid.enc -out payroll-hybrid.csv -pass file:aes.key.recovered
     ```
 
