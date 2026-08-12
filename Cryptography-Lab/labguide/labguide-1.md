@@ -28,7 +28,13 @@ In this task, you will identify the forged invoice using the vendor's published 
 
     ```bash
     cd ~/crypto-lab
+    ```
+
+    ```bash
     ls -l
+    ```
+
+    ```bash
     openssl version
     ```
 
@@ -66,6 +72,9 @@ In this task, you will identify the forged invoice using the vendor's published 
 
     ```bash
     echo -n "Transfer 1000 EUR to IBAN DE44" | sha256sum
+    ```
+
+    ```bash
     echo -n "Transfer 1000 EUR to IBAN DE45" | sha256sum
     ```
 
@@ -134,6 +143,9 @@ In this task, you will identify the forged invoice using the vendor's published 
 
     ```bash
     openssl passwd -6 -salt LabSalt01 'SamePassword123'
+    ```
+
+    ```bash
     openssl passwd -6 -salt LabSalt01 'SamePassword123'
     ```
 
