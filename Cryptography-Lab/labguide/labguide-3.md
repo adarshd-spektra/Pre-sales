@@ -26,6 +26,9 @@ In this task, you will sign the release approval, watch verification fail agains
 
     ```bash
     cd ~/crypto-lab
+    ```
+
+    ```bash
     ls -l private_key.pem public_key.pem
     ```
 
@@ -185,6 +188,9 @@ In this task, you will sign the release approval, watch verification fail agains
 
     ```bash
     openssl x509 -in server.crt -noout -modulus | sha256sum
+    ```
+
+    ```bash
     openssl rsa -in server.key -noout -modulus | sha256sum
     ```
 
