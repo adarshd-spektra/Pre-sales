@@ -158,6 +158,8 @@ In this task, you will sign the release approval, watch verification fail agains
       -subj "/C=DE/O=Northwind Components Ltd/CN=payments.northwind.example"
     ```
 
+    >**Note:** You can use **CTRL + SHIFT + V** to paste the command to avoid copy paste issues. 
+
     **Expected Output:**
 
     ```output

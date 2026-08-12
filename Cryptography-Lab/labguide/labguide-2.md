@@ -158,7 +158,6 @@ In this task, you will create a 2048-bit RSA key pair, use it to protect a short
 
     ```bash
     openssl rand -base64 32 > aes.key
-    cat aes.key
     ```
 
     ```bash
