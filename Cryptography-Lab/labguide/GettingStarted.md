@@ -74,7 +74,7 @@ To adjust the zoom level for the environment page, click the **A↕: 100%** icon
 
 Use the **Validate** button on each task to check your work. After completing the task, hit the **Validate** button under the Validation tab integrated within your guide. If you receive a success message, you can proceed to the next task; if not, carefully read the error message and retry the step, following the instructions in the guide.The **Progress** tab shows your validation score, it reaches 100% when all task validations pass.
 
-   ![](../Image/sql.png)
+   ![](./Image/sql.png)
 
 ## Lab Structure
 
